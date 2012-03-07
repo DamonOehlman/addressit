@@ -22,5 +22,7 @@
         "mocha": "*",
         "expect.js": "0.1.x",
         "uglify-js": "*"
-    }
+    },
+    
+    "scripts": { "test": "mocha --reporter spec" }
 }
