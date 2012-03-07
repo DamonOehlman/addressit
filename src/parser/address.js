@@ -18,6 +18,7 @@ Address.prototype = {
             streetParts = [],
             numberParts,
             parts = this.parts,
+            reNumeric = /^\d+$/,
             testFn = function() { return true; };
             
         while (index >= 0 && testFn()) {
@@ -50,7 +51,7 @@ Address.prototype = {
         this.street = streetParts.join(' ').replace(/\,/g, '');
         
         // parse the number as an integer
-        this.number = parseInt(this.number, 10) || this.number;
+        this.number = reNumeric.test(this.number) ? parseInt(this.number, 10) : this.number;
     },
     
     /**
@@ -63,7 +64,10 @@ Address.prototype = {
     clean: function(cleaners) {
         // ensure we have cleaners
         cleaners || cleaners || [];
-
+        
+        // convert the text to upper case
+        this.text = this.text.toUpperCase();
+        
         // apply the cleaners
         for (var ii = 0; ii < cleaners.length; ii++) {
             if (typeof cleaners[ii] == 'function') {
@@ -73,9 +77,6 @@ Address.prototype = {
                 this.text = this.text.replace(cleaners[ii], ''); 
             }
         } // for
-        
-        // convert the text to upper case
-        this.text = this.text.toUpperCase();
         
         return this;
     },
@@ -129,8 +130,8 @@ Address.prototype = {
         } // for
         
         // update the field value
-        this[fieldName] = value;
-
+        this[fieldName] = parseInt(value, 10) || value;
+        
         return this;
     },
     

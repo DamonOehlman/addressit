@@ -6,8 +6,6 @@
     //= parser/address
     //= parser/core
     
-    //= locales/en
-    
     function addressit(input, locale) {
         var parser;
         
@@ -20,6 +18,10 @@
         // parse the address
         return parser(input);
     }
+    
+    addressit.locales = locales;
+    
+    //= locales/en
     
     //@export addressit
 })(this);

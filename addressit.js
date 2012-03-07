@@ -27,6 +27,7 @@
                 streetParts = [],
                 numberParts,
                 parts = this.parts,
+                reNumeric = /^\d+$/,
                 testFn = function() { return true; };
                 
             while (index >= 0 && testFn()) {
@@ -59,7 +60,7 @@
             this.street = streetParts.join(' ').replace(/\,/g, '');
             
             // parse the number as an integer
-            this.number = parseInt(this.number, 10) || this.number;
+            this.number = reNumeric.test(this.number) ? parseInt(this.number, 10) : this.number;
         },
         
         /**
@@ -72,7 +73,10 @@
         clean: function(cleaners) {
             // ensure we have cleaners
             cleaners || cleaners || [];
-    
+            
+            // convert the text to upper case
+            this.text = this.text.toUpperCase();
+            
             // apply the cleaners
             for (var ii = 0; ii < cleaners.length; ii++) {
                 if (typeof cleaners[ii] == 'function') {
@@ -82,9 +86,6 @@
                     this.text = this.text.replace(cleaners[ii], ''); 
                 }
             } // for
-            
-            // convert the text to upper case
-            this.text = this.text.toUpperCase();
             
             return this;
         },
@@ -138,8 +139,8 @@
             } // for
             
             // update the field value
-            this[fieldName] = value;
-    
+            this[fieldName] = parseInt(value, 10) || value;
+            
             return this;
         },
         
@@ -274,9 +275,22 @@
     };
 
     
-    (function(_locales) {
+    function addressit(input, locale) {
+        var parser;
+        
+        // update the locale
+        locale = (locale || '').toUpperCase();
+
+        // get the parser for the locale
+        parser = locales[locale] || locales.EN;
+
+        // parse the address
+        return parser(input);
+    }
     
-        /* internals */
+    addressit.locales = locales;
+    
+    (function(_locales) {
     
         var parser = new AddressParser(),
         
@@ -294,8 +308,6 @@
                 '(WY|WAY)'
             ]);
     
-        /* exports */
-        
         _locales.EN = function(text) {
             return parser
                 .accept(text)
@@ -334,21 +346,8 @@
                 // finalize the address
                 .finalize();
         }; // EN parser
-    })(typeof locales != 'undefined' ? locales : (typeof module != 'undefined' ? module.exports : {}));
+    })(typeof addressit != 'undefined' ? addressit.locales : (typeof module != 'undefined' ? module.exports : {}));
 
-    
-    function addressit(input, locale) {
-        var parser;
-        
-        // update the locale
-        locale = (locale || '').toUpperCase();
-
-        // get the parser for the locale
-        parser = locales[locale] || locales.EN;
-
-        // parse the address
-        return parser(input);
-    }
     
     (typeof module != "undefined" && module.exports) ? (module.exports = addressit) : (typeof define != "undefined" ? (define("addressit", [], function() { return addressit; })) : (glob.addressit = addressit));
 })(this);

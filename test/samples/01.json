@@ -1,8 +1,0 @@
-{
-    "input": "2649 Logan Road Eight Mile Plains, QLD",
-    "output": {
-        "number": 2649,
-        "street": "LOGAN ROAD",
-        "regions": ["EIGHT MILE PLAINS", "QLD"]
-    }
-}

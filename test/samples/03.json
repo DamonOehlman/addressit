@@ -1,8 +1,0 @@
-{
-    "input": "1 Queen Street, Brisbane",
-    "output": {
-        "number": 1,
-        "street": "QUEEN STREET",
-        "regions": ["BRISBANE"]
-    }
-}

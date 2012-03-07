@@ -1,7 +1,5 @@
 (function(_locales) {
 
-    /* internals */
-
     var parser = new AddressParser(),
     
         // these are the regexes for determining whether or not a string is a street
@@ -18,8 +16,6 @@
             '(WY|WAY)'
         ]);
 
-    /* exports */
-    
     _locales.EN = function(text) {
         return parser
             .accept(text)
@@ -58,4 +54,4 @@
             // finalize the address
             .finalize();
     }; // EN parser
-})(typeof locales != 'undefined' ? locales : (typeof module != 'undefined' ? module.exports : {}));
+})(typeof addressit != 'undefined' ? addressit.locales : (typeof module != 'undefined' ? module.exports : {}));

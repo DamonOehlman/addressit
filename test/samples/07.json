@@ -1,9 +1,0 @@
-{
-    "input": "Shop 8, 431 St Kilda Rd Melbourne",
-    "output": {
-        "unit": 8,
-        "number": 431,
-        "street": "ST KILDA RD",
-        "regions": ["MELBOURNE"]
-    }
-}
