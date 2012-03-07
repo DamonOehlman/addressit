@@ -1,0 +1,26 @@
+{
+    "name": "addressit",
+    "description": "Freeform Street Address Parser",
+    "main": "_lib-generated/addressit.js",
+    "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+    "version": "0.1.0",
+    
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/DamonOehlman/addressit.git"
+    },
+    
+    "bugs": {
+        "url": "https://github.com/DamonOehlman/addressit/issues"
+    },
+    
+    "dependencies": {
+    },
+    
+    "devDependencies": {
+        "interleave": "0.1.x",
+        "mocha": "*",
+        "expect.js": "0.1.x",
+        "uglify-js": "*"
+    }
+}

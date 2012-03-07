@@ -1,0 +1,6 @@
+{
+    "input": "Sydney",
+    "output": {
+        "regions": ["SYDNEY"]
+    }
+}

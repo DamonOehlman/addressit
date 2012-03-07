@@ -1,0 +1,9 @@
+{
+    "input": "8/437 St Kilda Road Melbourne, VIC",
+    "output": {
+        "unit": 8,
+        "number": 437,
+        "street": "ST KILDA ROAD",
+        "regions": ["MELBOURNE", "VIC"]
+    }
+}
