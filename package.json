@@ -1,7 +1,7 @@
 {
     "name": "addressit",
     "description": "Freeform Street Address Parser",
-    "main": "addressit.js",
+    "main": "pkj/cjs/addressit.js",
     "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
     "version": "0.1.0",
     
@@ -18,10 +18,8 @@
     },
     
     "devDependencies": {
-        "interleave": "0.1.x",
-        "mocha": "*",
-        "expect.js": "0.1.x",
-        "uglify-js": "*"
+        "mocha": "1.x.x",
+        "expect": "0.1.x"
     },
     
     "scripts": { "test": "mocha --reporter spec" }
