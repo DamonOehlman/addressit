@@ -1,26 +1,26 @@
 {
-    "name": "addressit",
-    "description": "Freeform Street Address Parser",
-    "main": "pkg/cjs/addressit.js",
-    "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-    "version": "0.1.0",
-    
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/DamonOehlman/addressit.git"
-    },
-    
-    "bugs": {
-        "url": "https://github.com/DamonOehlman/addressit/issues"
-    },
-    
-    "dependencies": {
-    },
-    
-    "devDependencies": {
-        "mocha": "1.x.x",
-        "expect": "0.1.x"
-    },
-    
-    "scripts": { "test": "mocha --reporter spec" }
+  "name": "addressit",
+  "description": "Freeform Street Address Parser",
+  "main": "pkg/cjs/addressit.js",
+  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DamonOehlman/addressit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DamonOehlman/addressit/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "1.x.x",
+    "expect": "0.1.x"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
 }
