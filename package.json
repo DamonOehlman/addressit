@@ -14,10 +14,10 @@
   "dependencies": {},
   "devDependencies": {
     "mocha": "1.x.x",
-    "expect": "0.1.x"
+    "expect.js": "0.1.x"
   },
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "./node_modules/mocha/bin/mocha --reporter spec"
   },
   "optionalDependencies": {},
   "engines": {
