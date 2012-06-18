@@ -63,7 +63,7 @@ Address.prototype = {
     */
     clean: function(cleaners) {
         // ensure we have cleaners
-        cleaners || cleaners || [];
+        cleaners = cleaners || [];
         
         // convert the text to upper case
         this.text = this.text.toUpperCase();
@@ -141,7 +141,7 @@ Address.prototype = {
     This function is used to parse the address parts and locate any parts
     that look to be related to a street address.
     */
-    extractStreet: function(regexes) {
+    extractStreet: function(regexes, reSplitStreet) {
         var reNumericesque = /^(\d*|\d*\w)$/,
             parts = this.parts;
         
@@ -180,7 +180,16 @@ Address.prototype = {
                 // if the match is on the first part though, reject it as we 
                 // are probably dealing with a town name or something (e.g. St George)
                 if (regexes[rgxIdx].test(parts[partIdx]) && partIdx > 0) {
-                    this._extractStreetParts(locateBestStreetPart(partIdx));
+                    var startIndex = locateBestStreetPart(partIdx);
+                    
+                    // if we are dealing with a split street (i.e. foo rd west) and the 
+                    // address parts are appropriately delimited, then grab the next part 
+                    // also
+                    if (reSplitStreet.test(parts[startIndex + 1])) {
+                        startIndex += 1;
+                    }
+                    
+                    this._extractStreetParts(startIndex);
                     break;
                 } // if
             } // for

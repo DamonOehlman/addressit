@@ -26,6 +26,12 @@ describe('street parsing (EN locale)', function() {
         "regions": ["BRISBANE"]
     });
     
+    canParse('754 Robinson Rd West, Aspley, QLD', {
+        number: 754,
+        street: 'ROBINSON RD WEST',
+        regions: ['ASPLEY', 'QLD']
+    });
+    
     canParse('Sydney', {
         "regions": ["SYDNEY"]
     });
