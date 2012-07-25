@@ -1,3 +1,6 @@
+
+
+
 var locales = {};
 
 function Address(text) {
@@ -406,4 +409,6 @@ addressit.locales = locales;
     }; // EN parser
 })(typeof addressit != 'undefined' ? addressit.locales : (typeof module != 'undefined' ? module.exports : {}));
 
-module.exports = addressit;
+if (typeof addressit != 'undefined') {
+    module.exports = addressit;
+}

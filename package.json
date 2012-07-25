@@ -1,7 +1,7 @@
 {
   "name": "addressit",
   "description": "Freeform Street Address Parser",
-  "main": "pkg/cjs/addressit.js",
+  "main": "dist/commonjs/addressit",
   "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
   "version": "0.1.2",
   "repository": {
