@@ -1,4 +1,4 @@
-var addressit = require('../../dist/commonjs/addressit'),
+var addressit = require('../../addressit'),
     expect = require('expect.js');
 
 var canparse = function(locale) {

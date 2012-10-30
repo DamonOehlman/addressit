@@ -1,4 +1,4 @@
-var addressit = require('../../'),
+var addressit = require('../../addressit'),
     expect = require('expect.js');
 
 var streetType = function(locale) {

@@ -11,9 +11,10 @@
   "bugs": {
     "url": "https://github.com/DamonOehlman/addressit/issues"
   },
+  "main": "addressit.js",
   "dependencies": {},
   "devDependencies": {
-    "mocha": "1.x.x",
+    "mocha": "1.6.x",
     "expect.js": "0.1.x"
   },
   "scripts": {

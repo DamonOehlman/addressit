@@ -1,5 +1,26 @@
+/* ~addressit~
+ * 
+ * Freeform Street Address Parser
+ * 
+ * -meta---
+ * version:    0.1.3
+ * builddate:  2012-10-30T02:39:29.432Z
+ * generator:  interleave@0.5.23
+ * 
+ * 
+ * 
+ */ 
 
-define('addressit', [], function() {
+// umdjs returnExports pattern: https://github.com/umdjs/umd/blob/master/returnExports.js
+(function (root, factory) {
+    if (typeof exports === 'object') {
+        module.exports = factory();
+    } else if (typeof define === 'function' && define.amd) {
+        define([], factory);
+    } else {
+        root['addressit'] = factory();
+    }
+}(this, function () {
     var locales = {};
     
     function Address(text) {
@@ -409,4 +430,4 @@ define('addressit', [], function() {
     })(typeof addressit != 'undefined' ? addressit.locales : (typeof module != 'undefined' ? module.exports : {}));
     
     return typeof addressit != 'undefined' ? addressit : undefined;
-});
+}));
