@@ -1,9 +1,9 @@
 {
   "name": "addressit",
   "description": "Freeform Street Address Parser",
-  "main": "dist/commonjs/addressit",
+  "main": "addressit.js",
   "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "repository": {
     "type": "git",
     "url": "git://github.com/DamonOehlman/addressit.git"
@@ -11,7 +11,6 @@
   "bugs": {
     "url": "https://github.com/DamonOehlman/addressit/issues"
   },
-  "main": "addressit.js",
   "dependencies": {},
   "devDependencies": {
     "mocha": "1.6.x",

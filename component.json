@@ -2,7 +2,7 @@
   "name": "addressit",
   "repo": "DamonOehlman/addressit",
   "description": "Freeform Street Address Parser",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "addressit.js",
   "scripts": [
     "addressit.js"
