@@ -20,6 +20,8 @@ parsed based on your application needs.
 The following is a simple example of how address it can be used:
 
 ```js
+var addressit = require('addressit');
+
 // parse a made up address, with some slightly tricky parts
 var address = addressit('Shop 8, 431 St Kilda Rd Melbourne');
 ```
@@ -39,6 +41,11 @@ The `address` object would now contain the following information:
 For more examples, see the tests.
 
 ## Reference
+
+### addressit(input, opts?)
+
+Run the address parser for the given input.  Optional `opts` can be
+supplied if you want to override the default (EN) parser.
 
 ### Address
 

@@ -19,6 +19,8 @@
   The following is a simple example of how address it can be used:
 
   ```js
+  var addressit = require('addressit');
+
   // parse a made up address, with some slightly tricky parts
   var address = addressit('Shop 8, 431 St Kilda Rd Melbourne');
   ```
@@ -41,19 +43,13 @@
 
 **/
 
-/*
-## Built for Node and the Browser
+/**
+  ### addressit(input, opts?)
 
-The addressit module is designed to work both in the browser and in node.
-If you do wish to use it in a node environment, simply install the package
-into your project:
+  Run the address parser for the given input.  Optional `opts` can be
+  supplied if you want to override the default (EN) parser.
 
-For the browser, simply download either
-[addressit.js](/DamonOehlman/addressit/master/addressit.js) or
-[addressit.min.js](/DamonOehlman/addressit/master/addressit.min.js) and
-include it in your page.
-*/
-
+**/
 module.exports = function(input, opts) {
   var parser = (opts || {}).parser || require('./parsers/en');
 
