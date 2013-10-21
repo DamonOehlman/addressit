@@ -1,16 +1,18 @@
 /* jshint node: true */
 'use strict';
 
+var Address = require('./address');
+
 /**
   # addressit
 
-  AddressIt is a freeform street address parser, that is designed to take a 
+  AddressIt is a freeform street address parser, that is designed to take a
   piece of text and convert that into a structured address that can be
   processed in different systems.
 
   The focal point of `addressit` is on the street parsing component, rather
   than attempting to appropriately identify various states, counties, towns,
-  etc, as these vary from country to country fairly dramatically. These 
+  etc, as these vary from country to country fairly dramatically. These
   details are instead put into a generic regions array that can be further
   parsed based on your application needs.
 
@@ -36,17 +38,33 @@
   ```
 
   For more examples, see the tests.
-
-  ## Built for Node and the Browser
-
-  The addressit module is designed to work both in the browser and in node.
-  If you do wish to use it in a node environment, simply install the package
-  into your project:
-
-  For the browser, simply download either
-  [addressit.js](/DamonOehlman/addressit/master/addressit.js) or
-  [addressit.min.js](/DamonOehlman/addressit/master/addressit.min.js) and
-  include it in your page.
 **/
+
+/*
+## Built for Node and the Browser
+
+The addressit module is designed to work both in the browser and in node.
+If you do wish to use it in a node environment, simply install the package
+into your project:
+
+For the browser, simply download either
+[addressit.js](/DamonOehlman/addressit/master/addressit.js) or
+[addressit.min.js](/DamonOehlman/addressit/master/addressit.min.js) and
+include it in your page.
+*/
+
+module.exports = (input, opts) {
+  var parser = (opts || {}).parser || require('./parsers/en');
+
+  // update the locale
+  locale = (locale || '').toUpperCase();
+
+  // get the parser for the locale
+  parser = locales[locale] || locales.EN;
+
+  // parse the address
+  return (input);
+};
+
 
 exports.Address = require('./address');
