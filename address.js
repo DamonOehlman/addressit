@@ -80,7 +80,7 @@ proto._extractStreetParts = function(startIndex) {
   The clean function is used to clean up an address string.  It is designed
   to remove any parts of the text that preven effective parsing of the
   address string.
-*/
+**/
 proto.clean = function(cleaners) {
   // ensure we have cleaners
   cleaners = cleaners || [];
@@ -108,7 +108,7 @@ proto.clean = function(cleaners) {
   parts that have previously been split from the input text.  If successfully
   located then the field will be updated from the parts and that part removed
   from the parts list.
-*/
+**/
 proto.extract = function(fieldName, regexes) {
   var match;
   var rgxIdx;
@@ -163,7 +163,7 @@ proto.extract = function(fieldName, regexes) {
 
   This function is used to parse the address parts and locate any parts
   that look to be related to a street address.
-*/
+**/
 proto.extractStreet = function(regexes, reSplitStreet) {
   var reNumericesque = /^(\d*|\d*\w)$/;
   var parts = this.parts;
@@ -226,7 +226,7 @@ proto.extractStreet = function(regexes, reSplitStreet) {
 
   The finalize function takes any remaining parts that have not been extracted
   as other information, and pushes those fields into a generic `regions` field.
-*/
+**/
 proto.finalize = function() {
   // update the regions
   this.regions = this.parts.join(' ').split(/\,\s?/);
@@ -241,7 +241,7 @@ proto.finalize = function() {
   #### Address#split
 
   Split the address into it's component parts, and remove any empty parts
-*/
+**/
 proto.split = function(separator) {
   // split the string
   var newParts = this.text.split(separator || ' ');
@@ -260,7 +260,7 @@ proto.split = function(separator) {
   #### Address#toString
 
   Convert the address to a string representation
-*/
+**/
 proto.toString = function() {
   var output = '';
 

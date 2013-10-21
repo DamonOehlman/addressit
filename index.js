@@ -36,6 +36,9 @@
   ```
 
   For more examples, see the tests.
+
+  ## Reference
+
 **/
 
 /*
