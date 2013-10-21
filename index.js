@@ -1,8 +1,6 @@
 /* jshint node: true */
 'use strict';
 
-var Address = require('./address');
-
 /**
   # addressit
 
@@ -53,18 +51,9 @@ For the browser, simply download either
 include it in your page.
 */
 
-module.exports = (input, opts) {
+module.exports = function(input, opts) {
   var parser = (opts || {}).parser || require('./parsers/en');
 
-  // update the locale
-  locale = (locale || '').toUpperCase();
-
-  // get the parser for the locale
-  parser = locales[locale] || locales.EN;
-
   // parse the address
-  return (input);
+  return parser(input);
 };
-
-
-exports.Address = require('./address');
