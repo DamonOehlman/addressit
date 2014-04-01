@@ -80,8 +80,8 @@ var streetRegexes = compiler([
 
 var reSplitStreet = /^(N|NTH|NORTH|E|EST|EAST|S|STH|SOUTH|W|WST|WEST)\,$/i;
 
-module.exports = function(text) {
-  return new Address(text)
+module.exports = function(text, opts) {
+  return new Address(text, opts)
     // clean the address
     .clean([
         // remove trailing dots from two letter abbreviations
