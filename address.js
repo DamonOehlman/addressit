@@ -6,13 +6,16 @@ var reNumeric = /^\d+$/;
 /**
   ### Address
 **/
-function Address(text) {
+function Address(text, opts) {
   if (! (this instanceof Address)) {
     return new Address(text);
   }
 
   this.text = text;
   this.parts = [];
+
+  // determine whether or not we should preserve case or not
+  this.preserveCase = (opts || {}).preserveCase;
 }
 
 module.exports = Address;
@@ -86,7 +89,9 @@ proto.clean = function(cleaners) {
   cleaners = cleaners || [];
 
   // convert the text to upper case
-  this.text = this.text.toUpperCase();
+  if (! this.preserveCase) {
+    this.text = this.text.toUpperCase();
+  }
 
   // apply the cleaners
   for (var ii = 0; ii < cleaners.length; ii++) {
