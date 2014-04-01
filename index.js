@@ -54,5 +54,5 @@ module.exports = function(input, opts) {
   var parser = (opts || {}).parser || require('./parsers/en');
 
   // parse the address
-  return parser(input);
+  return parser(input, opts);
 };
