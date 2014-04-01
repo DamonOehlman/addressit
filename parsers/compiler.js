@@ -8,7 +8,8 @@ module.exports = function(textRegexes) {
 
   for (ii = textRegexes.length; ii--; ) {
     regexes[ii] = new RegExp(
-      textRegexes[ii].replace(reStreetCleaner, '^$1\,?$')
+      textRegexes[ii].replace(reStreetCleaner, '^$1\,?$'),
+      'i'
     );
   } // for
 
