@@ -91,7 +91,7 @@ module.exports = function(text, opts) {
 
         // convert shop to a unit format
         function(input) {
-            return input.replace(/^\s*SHOP\s?(\d*)\,?\s*/, '$1/');
+            return input.replace(/^\s*SHOP\s?(\d*)\,?\s*/i, '$1/');
         }
     ])
 
