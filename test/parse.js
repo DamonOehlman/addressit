@@ -1,76 +1,79 @@
 var test = require('tape');
-var expect = require('./helpers/expect');
+
+function expect(expected) {
+  return require('./helpers/expect')(expected, { preserveCase: true });
+}
 
 test('2649 Logan Road, Eight Mile Plains, QLD', expect({
   number: 2649,
-  street: 'LOGAN ROAD',
-  regions: ['EIGHT MILE PLAINS', 'QLD']
+  street: 'Logan Road',
+  regions: ['Eight Mile Plains', 'QLD']
 }));
 
 test('2649 Logan Road Eight Mile Plains, QLD', expect({
   number: 2649,
-  street: 'LOGAN ROAD',
-  regions: ['EIGHT MILE PLAINS', 'QLD']
+  street: 'Logan Road',
+  regions: ['Eight Mile Plains', 'QLD']
 }));
 
 test('4 N 2nd St #950, San Jose, CA', expect({
   unit: 950,
   number: 4,
-  street: "N 2ND ST",
-  regions: ["SAN JOSE", "CA"]
+  street: "N 2nd St",
+  regions: ["San Jose", "CA"]
 }));
 
 test('1 Queen Street, Brisbane', expect({
   "number": 1,
-  "street": "QUEEN STREET",
-  "regions": ["BRISBANE"]
+  "street": "Queen Street",
+  "regions": ["Brisbane"]
 }));
 
 test('754 Robinson Rd West, Aspley, QLD', expect({
   number: 754,
-  street: 'ROBINSON RD WEST',
-  regions: ['ASPLEY', 'QLD']
+  street: 'Robinson Rd West',
+  regions: ['Aspley', 'QLD']
 }));
 
 test('Sydney', expect({
-  "regions": ["SYDNEY"]
+  "regions": ["Sydney"]
 }));
 
 test('Perth', expect({
-  "regions": ["PERTH"]
+  "regions": ["Perth"]
 }));
 
 test('1/135 Ferny Way, Ferny Grove', expect({
   "unit": 1,
   "number": 135,
-  "street": "FERNY WAY",
-  "regions": ["FERNY GROVE"]
+  "street": "Ferny Way",
+  "regions": ["Ferny Grove"]
 }));
 
 test('Shop 8, 431 St Kilda Rd Melbourne', expect({
   "unit": 8,
   "number": 431,
-  "street": "ST KILDA RD",
-  "regions": ["MELBOURNE"]
+  "street": "St Kilda Rd",
+  "regions": ["Melbourne"]
 }));
 
 test('Eight Mile Plains', expect({
-  "regions": ["EIGHT MILE PLAINS"]
+  "regions": ["Eight Mile Plains"]
 }));
 
 test('St George', expect({
-  "regions": ["ST GEORGE"]
+  "regions": ["St George"]
 }));
 
 test('3N751 Hawthorn Dr., St. Charles, IL', expect({
   "number": "3N751",
-  "street": "HAWTHORN DR",
-  "regions": ["ST CHARLES", "IL"]
+  "street": "Hawthorn Dr",
+  "regions": ["St Charles", "IL"]
 }));
 
 test('8/437 St Kilda Road Melbourne, VIC', expect({
   "unit": 8,
   "number": 437,
-  "street": "ST KILDA ROAD",
-  "regions": ["MELBOURNE", "VIC"]
+  "street": "St Kilda Road",
+  "regions": ["Melbourne", "VIC"]
 }));
