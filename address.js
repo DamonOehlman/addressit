@@ -13,9 +13,6 @@ function Address(text, opts) {
 
   this.text = text;
   this.parts = [];
-
-  // determine whether or not we should preserve case or not
-  this.preserveCase = (opts || {}).preserveCase;
 }
 
 module.exports = Address;
@@ -87,11 +84,6 @@ proto._extractStreetParts = function(startIndex) {
 proto.clean = function(cleaners) {
   // ensure we have cleaners
   cleaners = cleaners || [];
-
-  // convert the text to upper case
-  if (! this.preserveCase) {
-    this.text = this.text.toUpperCase();
-  }
 
   // apply the cleaners
   for (var ii = 0; ii < cleaners.length; ii++) {
