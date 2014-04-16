@@ -111,8 +111,5 @@ module.exports = function(text, opts) {
     })
 
     // extract the street
-    .extractStreet(streetRegexes, reSplitStreet)
-
-    // finalize the address
-    .finalize();
+    .extractStreet(streetRegexes, reSplitStreet);
 };
