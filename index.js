@@ -52,7 +52,7 @@
 **/
 module.exports = function(input, opts) {
   // if no locale has been specified, then use the default vanilla en locale
-  var parse = (opts || {}).locale || require('./locale/en');
+  var parse = (opts || {}).locale || require('./parsers/en');
 
   // parse the address
   return parse(input, opts);
