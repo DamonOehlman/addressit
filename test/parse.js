@@ -1,7 +1,7 @@
 var test = require('tape');
 
 function expect(expected) {
-  return require('./helpers/expect')(expected, { preserveCase: true });
+  return require('./helpers/expect')(expected);
 }
 
 test('2649 Logan Road, Eight Mile Plains, QLD', expect({
