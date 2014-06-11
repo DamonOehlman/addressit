@@ -77,3 +77,10 @@ test('8/437 St Kilda Road Melbourne, VIC', expect({
   "street": "St Kilda Road",
   "regions": ["Melbourne", "VIC"]
 }));
+
+test('18 E. Main St.', expect({
+  "number": 18,
+  "street": "E. Main St",
+  "regions": []
+}));
+
