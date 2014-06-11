@@ -225,8 +225,10 @@ proto.extractStreet = function(regexes, reSplitStreet) {
   as other information, and pushes those fields into a generic `regions` field.
 **/
 proto.finalize = function() {
-  // update the regions
-  this.regions = this.parts.join(' ').split(/\,\s?/);
+  // update the regions, discarding any empty strings.
+  this.regions = this.parts.join(' ').split(/\,\s?/).filter(function (region) {
+      return region.length;
+  });
 
   // reset the parts
   this.parts = [];
