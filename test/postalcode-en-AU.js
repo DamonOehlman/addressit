@@ -62,3 +62,16 @@ test('8/437 St Kilda Road Melbourne, VIC ', expect({
   "street": "St Kilda Road",
   "regions": ["Melbourne", "VIC"]
 }));
+
+// Check behavior with a failing address
+test('BOOM', expect({
+  "regions": ["BOOM"],
+  postalcode: undefined
+}));
+
+// 9999 is not a valid Australian postal code.
+// If we don't recognize the postal code, it goes in the region field.
+test('Eight Mile Plains 9999', expect({
+  "regions": ["Eight Mile Plains 9999"],
+  postalcode: undefined
+}));
