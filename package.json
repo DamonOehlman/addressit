@@ -12,7 +12,7 @@
     "url": "https://github.com/DamonOehlman/addressit/issues"
   },
   "dependencies": {
-    "cog": "^0.5.3"
+    "cog": "^1.0.0"
   },
   "devDependencies": {
     "tape": "^2.12.1"
