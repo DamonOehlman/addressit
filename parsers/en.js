@@ -81,8 +81,10 @@ var streetRegexes = compiler([
 var reSplitStreet = /^(N|NTH|NORTH|E|EST|EAST|S|STH|SOUTH|W|WST|WEST)\,$/i;
 
 module.exports = function(text, opts) {
-  return new Address(text, opts)
-    // clean the address
+  var address = new Address(text, opts);
+
+  // clean the address
+  address
     .clean([
         // remove trailing dots from two letter abbreviations
         function(input) {
@@ -105,14 +107,19 @@ module.exports = function(text, opts) {
     ])
 
     // extract the country
+    // TODO: move this to the locale
     .extract('country', {
         AU: /^AUSTRAL/,
         US: /(^UNITED\sSTATES|^U\.?S\.?A?$)/
     })
 
     // extract the street
-    .extractStreet(streetRegexes, reSplitStreet)
+    .extractStreet(streetRegexes, reSplitStreet);
 
-    // finalize the address
-    .finalize();
+  if (opts && opts.rePostalCode) {
+    address.extract('postalcode', [ opts.rePostalCode ]);
+  }
+
+   // take remaining unknown parts and push them
+   return address.finalize();
 };

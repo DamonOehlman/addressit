@@ -51,8 +51,9 @@
 
 **/
 module.exports = function(input, opts) {
-  var parser = (opts || {}).parser || require('./parsers/en');
+  // if no locale has been specified, then use the default vanilla en locale
+  var parse = (opts || {}).locale || require('./parsers/en');
 
   // parse the address
-  return parser(input, opts);
+  return parse(input, opts);
 };
