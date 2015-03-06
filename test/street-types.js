@@ -42,6 +42,7 @@ test('CNR', valid);
 // test('COVE', valid);
 test('COURT', valid);
 test('CT', valid);
+test('CRT', valid);
 test('CRESCENT', valid);
 test('CRES', valid);
 test('DRIVE', valid);
