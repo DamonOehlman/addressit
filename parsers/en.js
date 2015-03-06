@@ -31,7 +31,7 @@ var streetRegexes = compiler([
   'CO?PSE',               // COPSE / CPSE
   '(CORNER|CNR)',         // CORNER / CNR
   // 'COVE',                 // COVE
-  'C(OUR)?T',             // COURT / CT
+  '(C((OUR)|R)?T|CRT)',   // COURT / CT /CRT
   'CRES(CENT)?',          // CRESCENT / CRES
   'DR(IVE)?',             // DRIVE / DR
   // 'END',                  // END
