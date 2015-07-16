@@ -136,15 +136,15 @@ proto.extract = function(fieldName, regexes) {
       if (match) {
         // if we have a 2nd capture group, then replace the item with
         // the text of that group
-        if (match[1]) {
-          this.parts.splice(ii, 1, match[1]);
+        if (match[2]) {
+          this.parts.splice(ii, 1, match[2]);
         }
         // otherwise, just remove the element
         else {
           this.parts.splice(ii, 1);
         } // if..else
 
-        value = lookups[rgxIdx] || match[0];
+        value = lookups[rgxIdx] || match[1];
       } // if
     } // for
   } // for
