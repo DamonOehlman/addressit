@@ -18,17 +18,17 @@ var compiler = require('./compiler');
 
 var streetRegexes = compiler([
   'ALLE?Y',               // ALLEY / ALLY
-  // 'APP(ROACH)?',          // APPROACH / APP
+  'APP(ROACH)?',          // APPROACH / APP
   'ARC(ADE)?',            // ARCADE / ARC
   'AV(E|ENUE)?',          // AVENUE / AV / AVE
   '(BOULEVARD|BLVD)',     // BOULEVARD / BLVD
-  // 'BROW',                 // BROW
+  'BROW',                 // BROW
   'BYPA(SS)?',            // BYPASS / BYPA
   'C(AUSE)?WAY',          // CAUSEWAY / CWAY
   '(CIRCUIT|CCT)',        // CIRCUIT / CCT
   'CIRC(US)?',            // CIRCUS / CIRC
-  // 'CL(OSE)?',             // CLOSE / CL
-  // 'CO?PSE',               // COPSE / CPSE
+  'CL(OSE)?',             // CLOSE / CL
+  'CO?PSE',               // COPSE / CPSE
   '(CORNER|CNR)',         // CORNER / CNR
   // 'COVE',                 // COVE
   '(C((OUR)|R)?T|CRT)',   // COURT / CT /CRT
@@ -40,9 +40,9 @@ var streetRegexes = compiler([
   'F(REE)?WAY',           // FREEWAY / FWAY
   '(FRONTAGE|FRNT)',      // FRONTAGE / FRNT
   // '(GARDENS|GDNS)',       // GARDENS / GDNS
-  // '(GLADE|GLD)',          // GLADE / GLD
+  '(GLADE|GLD)',          // GLADE / GLD
   // 'GLEN',                 // GLEN
-  // 'GR(EE)?N',             // GREEN / GRN
+  'GR(EE)?N',             // GREEN / GRN
   // 'GR(OVE)?',             // GROVE / GR
   // 'H(EIGH)?TS',           // HEIGHTS / HTS
   '(HIGHWAY|HWY)',        // HIGHWAY / HWY
@@ -50,8 +50,8 @@ var streetRegexes = compiler([
   'LINK',                 // LINK
   'LOOP',                 // LOOP
   'MALL',                 // MALL
-  // 'MEWS',                 // MEWS
-  // '(PACKET|PCKT)',        // PACKET / PCKT
+  'MEWS',                 // MEWS
+  '(PACKET|PCKT)',        // PACKET / PCKT
   'P(ARA)?DE',            // PARADE / PDE
   // 'PARK',                 // PARK
   '(PARKWAY|PKWY)',       // PARKWAY / PKWY
@@ -59,10 +59,10 @@ var streetRegexes = compiler([
   'PROM(ENADE)?',         // PROMENADE / PROM
   'RES(ERVE)?',           // RESERVE / RES
   // 'RI?DGE',               // RIDGE / RDGE
-  // 'RISE',                 // RISE
+  'RISE',                 // RISE
   'R(OA)?D',              // ROAD / RD
   'ROW',                  // ROW
-  // 'SQ(UARE)?',            // SQUARE / SQ
+  'SQ(UARE)?',            // SQUARE / SQ
   'ST(REET)?',            // STREET / ST
   'STRI?P',               // STRIP / STRP
   'TARN',                 // TARN
