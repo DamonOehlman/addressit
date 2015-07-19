@@ -20,7 +20,7 @@ test('4 N 2nd St #950, San Jose, CA', expect({
   unit: 950,
   number: 4,
   street: "N 2nd St",
-  regions: ["San Jose", "CA"]
+  regions: ["San Jose"]
 }));
 
 test('1 Queen Street, Brisbane', expect({
@@ -68,7 +68,7 @@ test('St George', expect({
 test('3N751 Hawthorn Dr., St. Charles, IL', expect({
   "number": "3N751",
   "street": "Hawthorn Dr",
-  "regions": ["St Charles", "IL"]
+  "regions": ["St Charles"]
 }));
 
 test('8/437 St Kilda Road Melbourne, VIC', expect({

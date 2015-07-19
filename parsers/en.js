@@ -106,15 +106,16 @@ module.exports = function(text, opts) {
         (/^(\d+)\/(.*)/)
     ])
 
-    // extract the country
-    // TODO: move this to the locale
-    .extract('country', {
-        AU: /^AUSTRAL/,
-        US: /(^UNITED\sSTATES|^U\.?S\.?A?$)/
-    })
-
     // extract the street
     .extractStreet(streetRegexes, reSplitStreet);
+
+  if (opts && opts.state) {
+    address.extract('state', opts.state );
+  }
+
+  if (opts && opts.country) {
+    address.extract('country', opts.country );
+  }
 
   if (opts && opts.rePostalCode) {
     address.extract('postalcode', [ opts.rePostalCode ]);
