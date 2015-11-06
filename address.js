@@ -69,9 +69,6 @@ proto._extractStreetParts = function(startIndex) {
 
   this.number = numberParts ? numberParts.join('/') : '';
   this.street = streetParts.join(' ').replace(/\,/g, '');
-
-  // parse the number as an integer
-  this.number = reNumeric.test(this.number) ? parseInt(this.number, 10) : this.number;
 };
 
 /**
@@ -150,7 +147,7 @@ proto.extract = function(fieldName, regexes) {
   } // for
 
   // update the field value
-  this[fieldName] = parseInt(value, 10) || value;
+  this[fieldName] = value;
 
   return this;
 };
