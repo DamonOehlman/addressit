@@ -7,36 +7,36 @@ function expect(expected) {
 }
 
 test('2649 Logan Road, Eight Mile Plains, QLD 4113', expect({
-  number: 2649,
+  number: '2649',
   street: 'Logan Road',
   regions: ['Eight Mile Plains', 'QLD'],
-  postalcode: 4113
+  postalcode: '4113'
 }));
 
 test('2649 Logan Road Eight Mile Plains, QLD 4113', expect({
-  number: 2649,
+  number: '2649',
   street: 'Logan Road',
   regions: ['Eight Mile Plains', 'QLD'],
-  postalcode: 4113
+  postalcode: '4113'
 }));
 
 test('1 Queen Street, Brisbane 4000', expect({
-  "number": 1,
+  "number": '1',
   "street": "Queen Street",
   "regions": ["Brisbane"],
-  postalcode: 4000
+  postalcode: '4000'
 }));
 
 test('754 Robinson Rd West, Aspley, QLD 4035', expect({
-  number: 754,
+  number: '754',
   street: 'Robinson Rd West',
   regions: ['Aspley', 'QLD'],
-  postalcode: 4035
+  postalcode: '4035'
 }));
 
 test('Sydney 2000', expect({
   "regions": ["Sydney"],
-  postalcode: 2000
+  postalcode: '2000'
 }));
 
 test('Perth', expect({
@@ -44,21 +44,21 @@ test('Perth', expect({
 }));
 
 test('1/135 Ferny Way, Ferny Grove 4054', expect({
-  "unit": 1,
-  "number": 135,
+  "unit": '1',
+  "number": '135',
   "street": "Ferny Way",
   "regions": ["Ferny Grove"],
-  postalcode: 4054
+  postalcode: '4054'
 }));
 
 test('Eight Mile Plains 4113', expect({
   "regions": ["Eight Mile Plains"],
-  postalcode: 4113
+  postalcode: '4113'
 }));
 
 test('8/437 St Kilda Road Melbourne, VIC ', expect({
-  "unit": 8,
-  "number": 437,
+  "unit": '8',
+  "number": '437',
   "street": "St Kilda Road",
   "regions": ["Melbourne", "VIC"]
 }));

@@ -8,7 +8,7 @@ function valid(t) {
   t.plan(3);
   address = addressit(input);
 
-  t.equal(address.number, 15);
+  t.equal(address.number, '15');
   t.equal(address.street, 'FOO ' + t.name.toUpperCase());
   t.deepEqual(address.regions, ['BARVILLE']);
 }
