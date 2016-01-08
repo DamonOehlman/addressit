@@ -126,7 +126,7 @@ proto.extract = function(fieldName, regexes) {
 
   // iterate over the unit regexes and test them against the various parts
   for (rgxIdx = 0; rgxIdx < regexes.length; rgxIdx++) {
-    for (ii = this.parts.length; ii--; ) {
+    for (ii = this.parts.length; ii >= 0; ii-- ) {
       match = regexes[rgxIdx].exec(this.parts[ii]);
 
       // if we have a match, then process
@@ -142,6 +142,34 @@ proto.extract = function(fieldName, regexes) {
         } // if..else
 
         value = lookups[rgxIdx] || match[1];
+      } else if (fieldName === 'state' && value === undefined) {
+        var matchMultiplePart = false;
+        var spacesInMatch = regexes[rgxIdx].source.split('\\s').length;
+        if (spacesInMatch > 1) {
+          var multiplePart = [];
+          for (var partJoin = ii; partJoin > ii - spacesInMatch && partJoin >= 0; partJoin--) {
+            multiplePart.push(this.parts[partJoin]);
+          }
+          multiplePart.reverse();
+          multiplePart = multiplePart.join(' ');
+          matchMultiplePart = regexes[rgxIdx].exec(multiplePart);
+
+          if (matchMultiplePart) {
+            // if we have a 2nd capture group, then replace the item with
+            // the text of that group
+            if (matchMultiplePart[2]) {
+              this.parts.splice(ii - spacesInMatch + 1, spacesInMatch, matchMultiplePart[2]);
+              ii -= spacesInMatch + 1;
+            }
+            // otherwise, just remove the element
+            else {
+              this.parts.splice(ii - spacesInMatch + 1, spacesInMatch);
+              ii -= spacesInMatch + 1;
+            } // if..else
+
+            value = lookups[rgxIdx] || matchMultiplePart[1];
+          }
+        }
       } // if
     } // for
   } // for
