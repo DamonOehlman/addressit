@@ -60,6 +60,24 @@ test('California', expect({
   "state": "CA"
 }));
 
+test('New York', expect({
+  "state": "NY"
+}));
+
+test('New York, NY', expect({
+  "state": "NY",
+  "regions": ["New York"]
+}));
+
+test('New York, New York', expect({
+  "state": "NY",
+  "regions": ["New York"]
+}));
+
+test('northern mariana islands', expect({
+  "state": "MP"
+}));
+
 test('Santa Monica, California 90407', expect({
   "state": "CA",
   "regions": ["Santa Monica"],
