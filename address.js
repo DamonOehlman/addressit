@@ -32,11 +32,12 @@ var proto = Address.prototype;
   start of the parts array is reached or we fall back to non-numeric fields
   then the extraction is stopped.
 **/
-proto._extractStreetParts = function(startIndex) {
+proto._extractStreetParts = function(startIndex, splitStreet) {
   var index = startIndex;
   var streetParts = [];
   var numberParts;
   var parts = this.parts;
+  var streetPartsLength = (splitStreet) ? 3 : 2;
   var testFn = function() {
     return true;
   };
@@ -44,7 +45,7 @@ proto._extractStreetParts = function(startIndex) {
   while (index >= 0 && testFn()) {
     var alphaPart = isNaN(parseInt(parts[index], 10));
 
-    if (streetParts.length < 2 || alphaPart) {
+    if (streetParts.length < streetPartsLength || alphaPart) {
       // add the current part to the street parts
       streetParts.unshift(parts.splice(index--, 1));
     }
@@ -189,6 +190,7 @@ proto.extract = function(fieldName, regexes) {
 proto.extractStreet = function(regexes, reSplitStreet) {
   var reNumericesque = /^(\d*|\d*\w)$/;
   var parts = this.parts;
+  var splitStreet = false;
 
   // ensure we have regexes
   regexes = regexes || [];
@@ -231,10 +233,11 @@ proto.extractStreet = function(regexes, reSplitStreet) {
         // address parts are appropriately delimited, then grab the next part
         // also
         if (reSplitStreet.test(parts[startIndex + 1])) {
+          splitStreet = true;
           startIndex += 1;
         }
 
-        this._extractStreetParts(startIndex);
+        this._extractStreetParts(startIndex, splitStreet);
         break;
       } // if
     } // for

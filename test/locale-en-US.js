@@ -46,6 +46,22 @@ test('754 Pharr Rd, Atlanta, Georgia 31035', expect({
   postalcode: '31035'
 }));
 
+test('601 21st Ave N, Myrtle Beach, South Carolina 29577', expect({
+  number: '601',
+  street: '21st Ave N',
+  state: 'SC',
+  regions: ['Myrtle Beach'],
+  postalcode: '29577'
+}));
+
+test('425 W 23rd St, New York, NY 10011', expect({
+  number: '425',
+  street: 'W 23rd St',
+  state: 'NY',
+  regions: ['New York'],
+  postalcode: '10011'
+}));
+
 test('Texas 76013', expect({
   "state": "TX",
   "regions": [],
