@@ -13,7 +13,7 @@ parsed based on your application needs.
 
 [![NPM](https://nodei.co/npm/addressit.png)](https://nodei.co/npm/addressit/)
 
-[![Build Status](https://img.shields.io/travis/DamonOehlman/addressit.svg?branch=master)](https://travis-ci.org/DamonOehlman/addressit) 
+[![stable](https://img.shields.io/badge/stability-stable-green.svg)](https://github.com/dominictarr/stability#stable) [![Build Status](https://api.travis-ci.org/DamonOehlman/addressit.svg?branch=master)](https://travis-ci.org/DamonOehlman/addressit) [![bitHound Score](https://www.bithound.io/github/DamonOehlman/addressit/badges/score.svg)](https://www.bithound.io/github/DamonOehlman/addressit) 
 
 ## Example Usage
 
@@ -96,7 +96,7 @@ Convert the address to a string representation
 
 ### MIT
 
-Copyright (c) 2015 Damon Oehlman <damon.oehlman@gmail.com>
+Copyright (c) 2016 Damon Oehlman <damon.oehlman@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

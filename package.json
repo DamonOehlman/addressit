@@ -4,6 +4,7 @@
   "main": "addressit.js",
   "author": "Damon Oehlman <damon.oehlman@gmail.com>",
   "version": "1.3.0",
+  "stability": "stable",
   "repository": {
     "type": "git",
     "url": "https://github.com/DamonOehlman/addressit.git"
