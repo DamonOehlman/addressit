@@ -69,6 +69,7 @@ var streetRegexes = compiler([
   'T(ERRA)?CE',           // TERRACE / TCE
   '(THOROUGHFARE|TFRE)',  // THOROUGHFARE / TFRE
   'TRACK?',               // TRACK / TRAC
+  'TR(AI)?L',             // TRAIL / TRL
   'T(RUNK)?WAY',          // TRUNKWAY / TWAY
   // 'VIEW',                 // VIEW
   'VI?STA',               // VISTA / VSTA

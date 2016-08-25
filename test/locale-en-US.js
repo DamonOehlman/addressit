@@ -62,6 +62,14 @@ test('425 W 23rd St, New York, NY 10011', expect({
   postalcode: '10011'
 }));
 
+test('1035 Comanchee Trl, West Columbia, South Carolina 29169', expect({
+  number: '1035',
+  street: 'Comanchee Trl',
+  state: 'SC',
+  regions: ['West Columbia'],
+  postalcode: '29169'
+}));
+
 test('Texas 76013', expect({
   "state": "TX",
   "regions": [],

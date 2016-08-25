@@ -106,6 +106,8 @@ test('THOROUGHFARE', valid);
 test('TFRE', valid);
 test('TRACK', valid);
 test('TRAC', valid);
+test('TRAIL', valid);
+test('TRL', valid);
 test('TRUNKWAY', valid);
 test('TWAY', valid);
 // test('VIEW', valid);
