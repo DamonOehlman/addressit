@@ -1,0 +1,11 @@
+[ignore]
+.*/node_modules/.*
+.*/test/.*
+
+[include]
+index.js
+lib/.*
+
+[libs]
+
+[options]
