@@ -1,6 +1,12 @@
 /* jshint node: true */
 'use strict';
 
+const {
+  DefaultLocale
+} = require('./lib/locale');
+
+const CLASSIFIERS = require('./lib/classifiers');
+
 /**
   # addressit
 
@@ -51,9 +57,21 @@
 
 **/
 module.exports = function(input, opts) {
-  // if no locale has been specified, then use the default vanilla en locale
-  var parse = (opts || {}).locale || require('./locale/en-US');
+  const locale = new DefaultLocale();
+  const tokens = require('./lib/tokenizer')(input);
+  const classifiedTokens = CLASSIFIERS.reduce((memo, classifier) => {
+    const last = memo[memo.length - 1];
+    return memo.concat([classifier(last, locale)]);
+  }, [tokens]);
 
-  // parse the address
-  return parse(input, opts);
+  console.log(classifiedTokens);
+
+
+  // // if no locale has been specified, then use the default vanilla en locale
+  // var parse = (opts || {}).locale || require('./locale/en-US');
+
+  // // parse the address
+  // return parse(input, opts);
+
+  return {};
 };
