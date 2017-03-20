@@ -59,6 +59,8 @@ const CLASSIFIERS = require('./lib/classifiers');
 module.exports = function(input, opts) {
   const locale = new DefaultLocale();
   const tokens = require('./lib/tokenizer')(input);
+
+  // run the classifiers such that we can observe the history of the address changes
   const classifiedTokens = CLASSIFIERS.reduce((memo, classifier) => {
     const last = memo[memo.length - 1];
     return memo.concat([classifier(last, locale)]);
