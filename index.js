@@ -5,6 +5,10 @@ const {
   DefaultLocale
 } = require('./lib/locale');
 
+const {
+  AddressBuilder
+} = require('./lib/address');
+
 const CLASSIFIERS = require('./lib/classifiers');
 
 /**
@@ -61,10 +65,11 @@ module.exports = function(input, opts) {
   const tokens = require('./lib/tokenizer')(input);
 
   // run the classifiers such that we can observe the history of the address changes
+  // the final reverse statement means that the first item is the final parsed result
   const classifiedTokens = CLASSIFIERS.reduce((memo, classifier) => {
     const last = memo[memo.length - 1];
     return memo.concat([classifier(last, locale)]);
-  }, [tokens]);
+  }, [tokens]).reverse();
 
   console.log(classifiedTokens);
 
@@ -74,6 +79,7 @@ module.exports = function(input, opts) {
 
   // // parse the address
   // return parse(input, opts);
-
-  return {};
+  const address = AddressBuilder.fromParts(classifiedTokens[0]);
+  console.log(address);
+  return address;
 };
