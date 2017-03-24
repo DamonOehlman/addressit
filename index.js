@@ -62,7 +62,7 @@ const CLASSIFIERS = require('./lib/classifiers');
 **/
 module.exports = function(input, opts) {
   const locale = new DefaultLocale();
-  const tokens = require('./lib/tokenizer')(input);
+  const tokens = require('./lib/tokenizer')(input, locale);
 
   // run the classifiers such that we can observe the history of the address changes
   // the final reverse statement means that the first item is the final parsed result
