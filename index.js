@@ -71,7 +71,7 @@ module.exports = function(input, opts) {
     return memo.concat([classifier(last, locale)]);
   }, [tokens]).reverse();
 
-  console.log(classifiedTokens);
+  console.log(classifiedTokens.shift());
 
 
   // // if no locale has been specified, then use the default vanilla en locale
