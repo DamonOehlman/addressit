@@ -27,6 +27,12 @@ test('1 Queen Street, Brisbane 4000', expect({
   postalcode: '4000'
 }));
 
+test('754 Robinson Rd West, Aspley, QLD', expect({
+  number: '754',
+  street: 'Robinson Rd West',
+  regions: ['Aspley', 'QLD']
+}));
+
 test('754 Robinson Rd West, Aspley, QLD 4035', expect({
   number: '754',
   street: 'Robinson Rd West',
