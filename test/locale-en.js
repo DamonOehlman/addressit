@@ -1,10 +1,12 @@
-var test = require('tape');
+const test = require('tape');
+const { DefaultEnglishLocale } = require('../lib/locale');
+const locale = new DefaultEnglishLocale();
 
 function expect(expected) {
-  return require('./helpers/expect')(expected);
+  return require('./helpers/expect')(expected, locale);
 }
 
-test('2649 Logan Road, Eight Mile Plains, QLD', expect({
+test('2649 Logan Road, Eight Mile Plains   ,, QLD', expect({
   number: '2649',
   street: 'Logan Road',
   regions: ['Eight Mile Plains', 'QLD']
@@ -20,19 +22,13 @@ test('4 N 2nd St #950, San Jose, CA', expect({
   unit: '950',
   number: '4',
   street: "N 2nd St",
-  regions: ["San Jose"]
+  regions: ["San Jose", "CA"]
 }));
 
 test('1 Queen Street, Brisbane', expect({
   "number": '1',
   "street": "Queen Street",
   "regions": ["Brisbane"]
-}));
-
-test('754 Robinson Rd West, Aspley, QLD', expect({
-  number: '754',
-  street: 'Robinson Rd West',
-  regions: ['Aspley', 'QLD']
 }));
 
 test('Sydney', expect({
@@ -50,6 +46,13 @@ test('1/135 Ferny Way, Ferny Grove', expect({
   "regions": ["Ferny Grove"]
 }));
 
+test('804/123-125 St Kilda Road Melbourne', expect({
+  unit: '804',
+  number: '123-125',
+  street :'St Kilda Road',
+  regions: ['Melbourne']
+}));
+
 test('Shop 8, 431 St Kilda Rd Melbourne', expect({
   "unit": '8',
   "number": '431',
@@ -65,7 +68,7 @@ test('St George', expect({
   "regions": ["St George"]
 }));
 
-test('3N751 Hawthorn Dr., St. Charles, IL', expect({
+test.only('3N751 Hawthorn Dr., St. Charles, IL', expect({
   "number": "3N751",
   "street": "Hawthorn Dr",
   "regions": ["St Charles"]

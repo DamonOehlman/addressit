@@ -61,7 +61,7 @@ const CLASSIFIERS = require('./lib/classifiers');
 
 **/
 module.exports = function(input, opts) {
-  const locale = new DefaultLocale();
+  const locale = opts.locale || new DefaultLocale();
   const tokens = require('./lib/tokenizer')(input, locale);
 
   // run the classifiers such that we can observe the history of the address changes
@@ -71,7 +71,7 @@ module.exports = function(input, opts) {
     return memo.concat([classifier(last, locale)]);
   }, [tokens]).reverse();
 
-  console.log(classifiedTokens.shift());
+  console.log(classifiedTokens[0]);
 
 
   // // if no locale has been specified, then use the default vanilla en locale
