@@ -32,12 +32,11 @@ var proto = Address.prototype;
   start of the parts array is reached or we fall back to non-numeric fields
   then the extraction is stopped.
 **/
-proto._extractStreetParts = function(startIndex, splitStreet) {
+proto._extractStreetParts = function(startIndex, streetPartsLength) {
   var index = startIndex;
   var streetParts = [];
   var numberParts;
   var parts = this.parts;
-  var streetPartsLength = (splitStreet) ? 3 : 2;
   var testFn = function() {
     return true;
   };
@@ -187,10 +186,10 @@ proto.extract = function(fieldName, regexes) {
   This function is used to parse the address parts and locate any parts
   that look to be related to a street address.
 **/
-proto.extractStreet = function(regexes, reSplitStreet) {
+proto.extractStreet = function(regexes, reSplitStreet, reNoStreet) {
   var reNumericesque = /^(\d*|\d*\w)$/;
   var parts = this.parts;
-  var splitStreet = false;
+  var streetPartsLength = 2;
 
   // ensure we have regexes
   regexes = regexes || [];
@@ -233,11 +232,15 @@ proto.extractStreet = function(regexes, reSplitStreet) {
         // address parts are appropriately delimited, then grab the next part
         // also
         if (reSplitStreet.test(parts[startIndex + 1])) {
-          splitStreet = true;
+          streetPartsLength = 3;
           startIndex += 1;
         }
 
-        this._extractStreetParts(startIndex, splitStreet);
+        if (reNoStreet.test(parts[startIndex])) {
+          streetPartsLength = 1;
+        }
+
+        this._extractStreetParts(startIndex, streetPartsLength);
         break;
       } // if
     } // for
