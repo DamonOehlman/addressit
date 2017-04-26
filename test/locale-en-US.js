@@ -132,3 +132,12 @@ test('Niagara Falls 76B09', expect({
   "regions": ["Niagara Falls 76B09"],
   postalcode: undefined
 }));
+
+// Broadway doesn't have a suffix like "Street" or "Road"
+test('123 Broadway, New York, NY 10010', expect({
+  number: '123',
+  street: 'Broadway',
+  state: 'NY',
+  regions: ['New York'],
+  postalcode: '10010'
+}));

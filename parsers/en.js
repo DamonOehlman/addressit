@@ -76,10 +76,12 @@ var streetRegexes = compiler([
   'WALK',                 // WALK
   'WA?Y',                 // WAY / WY
   'W(ALK)?WAY',           // WALKWAY / WWAY
-  'YARD'                  // YARD
+  'YARD',                 // YARD
+  'BROADWAY'
 ]);
 
 var reSplitStreet = /^(N|NTH|NORTH|E|EST|EAST|S|STH|SOUTH|W|WST|WEST)\,$/i;
+var reNoStreet = compiler(['BROADWAY']).pop();
 
 module.exports = function(text, opts) {
   var address = new Address(text, opts);
@@ -108,7 +110,7 @@ module.exports = function(text, opts) {
     ])
 
     // extract the street
-    .extractStreet(streetRegexes, reSplitStreet);
+    .extractStreet(streetRegexes, reSplitStreet, reNoStreet);
 
   if (opts && opts.state) {
     address.extract('state', opts.state );
