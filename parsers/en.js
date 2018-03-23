@@ -66,7 +66,7 @@ var streetRegexes = compiler([
   'ST(REET)?',            // STREET / ST
   'STRI?P',               // STRIP / STRP
   'TARN',                 // TARN
-  'T(ERRA)?CE',           // TERRACE / TCE
+  'T(ERRA)?CE|TER?R',     // TERRACE / TER / TERR / TCE
   '(THOROUGHFARE|TFRE)',  // THOROUGHFARE / TFRE
   'TRACK?',               // TRACK / TRAC
   'TR(AI)?L',             // TRAIL / TRL
