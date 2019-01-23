@@ -35,7 +35,7 @@ var streetRegexes = compiler([
   'CRES(CENT)?',          // CRESCENT / CRES
   'DR(IVE)?',             // DRIVE / DR
   // 'END',                  // END
-  'ESP(LANANDE)?',        // ESPLANADE / ESP
+  'ESP(LANADE)?',        // ESPLANADE / ESP
   // 'FLAT',                 // FLAT
   'F(REE)?WAY',           // FREEWAY / FWAY
   '(FRONTAGE|FRNT)',      // FRONTAGE / FRNT
