@@ -48,7 +48,7 @@ test('CRES', valid);
 test('DRIVE', valid);
 test('DR', valid);
 // test('END', valid);
-test('ESPLANANDE', valid);
+test('ESPLANADE', valid);
 test('ESP', valid);
 // test('FLAT', valid);
 test('FREEWAY', valid);
