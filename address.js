@@ -134,6 +134,15 @@ proto.extract = function(fieldName, regexes) {
       // skip fields which have already been parsed
       if (this[fieldName]){ continue; }
 
+      // do not consider the first token for an abbreviated 'state' field
+      if (ii === 0 && fieldName === 'state'){
+        // only where there are more than one token and the first token
+        // is less than or equal to three characters in length.
+        if ( this.parts.length > 1 && this.parts[ii].length <= 3 ) {
+          continue;
+        }
+      }
+
       // execute regex against part
       match = regexes[rgxIdx].exec(this.parts[ii]);
 
