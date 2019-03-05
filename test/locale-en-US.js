@@ -141,3 +141,12 @@ test('123 Broadway, New York, NY 10010', expect({
   regions: ['New York'],
   postalcode: '10010'
 }));
+
+// Only parse the state once, do not modify 'Mt Tabor Park' to remove 'MT'.
+test('Mt Tabor Park, 6220 SE Salmon St, Portland, OR 97215, USA', expect({
+  number: '6220',
+  street: 'SE Salmon St',
+  state: 'OR',
+  country: 'USA',
+  regions: ['Mt Tabor Park', 'Portland', '97215']
+}));

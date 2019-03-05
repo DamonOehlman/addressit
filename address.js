@@ -51,7 +51,7 @@ proto._extractStreetParts = function(startIndex, streetPartsLength) {
     else {
       if (! numberParts) {
         numberParts = [];
-      } // if
+      }
 
       // add the current part to the building parts
       numberParts.unshift(parts.splice(index--, 1));
@@ -64,7 +64,7 @@ proto._extractStreetParts = function(startIndex, streetPartsLength) {
         // for non-alpha values, otherwise alpha
         return numberParts ? (! isAlpha) : isAlpha;
       };
-    } // if..else
+    }
   } // while
 
   this.number = numberParts ? numberParts.join('/') : '';
@@ -90,7 +90,7 @@ proto.clean = function(cleaners) {
     else if (cleaners[ii] instanceof RegExp) {
       this.text = this.text.replace(cleaners[ii], '');
     }
-  } // for
+  }
 
   return this;
 };
@@ -104,10 +104,13 @@ proto.clean = function(cleaners) {
   from the parts list.
 **/
 proto.extract = function(fieldName, regexes) {
+
+  // skip fields which have already been parsed
+  if (this[fieldName]) { return this; }
+
   var match;
   var rgxIdx;
   var ii;
-  var value;
   var lookups = [];
 
   // if the regexes have been passed in as objects, then convert to an array
@@ -125,24 +128,33 @@ proto.extract = function(fieldName, regexes) {
   }
 
   // iterate over the unit regexes and test them against the various parts
-  for (rgxIdx = 0; rgxIdx < regexes.length; rgxIdx++) {
-    for (ii = this.parts.length; ii >= 0; ii-- ) {
+  for (ii = this.parts.length-1; ii >= 0; ii--) {
+    for (rgxIdx = 0; rgxIdx < regexes.length; rgxIdx++) {
+
+      // skip fields which have already been parsed
+      if (this[fieldName]){ continue; }
+
+      // execute regex against part
       match = regexes[rgxIdx].exec(this.parts[ii]);
 
       // if we have a match, then process
       if (match) {
-        // if we have a 2nd capture group, then replace the item with
-        // the text of that group
         if (match[2]) {
+          // if we have a 2nd capture group, then replace the item with	
+          // the text of that group
           this.parts.splice(ii, 1, match[2]);
-        }
-        // otherwise, just remove the element
-        else {
+        } else {
+          // otherwise, just remove the element from parts
           this.parts.splice(ii, 1);
-        } // if..else
+        }
 
-        value = lookups[rgxIdx] || match[1];
-      } else if (fieldName === 'state' && value === undefined) {
+        // set the field
+        this[fieldName] = lookups[rgxIdx] || match[1];
+      }
+
+      // special case for states
+      // @todo: add code comments
+      else if (fieldName === 'state') {
         var matchMultiplePart = false;
         var spacesInMatch = regexes[rgxIdx].source.split('\\s').length;
         if (spacesInMatch > 1) {
@@ -165,17 +177,15 @@ proto.extract = function(fieldName, regexes) {
             else {
               this.parts.splice(ii - spacesInMatch + 1, spacesInMatch);
               ii -= spacesInMatch + 1;
-            } // if..else
+            }
 
-            value = lookups[rgxIdx] || matchMultiplePart[1];
+            // set the field
+            this[fieldName] = lookups[rgxIdx] || matchMultiplePart[1];
           }
         }
-      } // if
-    } // for
-  } // for
-
-  // update the field value
-  this[fieldName] = value;
+      }
+    }
+  }
 
   return this;
 };
@@ -212,9 +222,9 @@ proto.extractStreet = function(regexes, reSplitStreet, reNoStreet) {
           // update the best index and break from the inner loop
           bestIndex = ii;
           break;
-        } // if
-      } // for
-    } // for
+        }
+      }
+    }
 
     return bestIndex;
   } // locateBestStreetPart
@@ -242,9 +252,9 @@ proto.extractStreet = function(regexes, reSplitStreet, reNoStreet) {
 
         this._extractStreetParts(startIndex, streetPartsLength);
         break;
-      } // if
-    } // for
-  } // for
+      }
+    }
+  }
 
   return this;
 };
@@ -280,8 +290,8 @@ proto.split = function(separator) {
   for (var ii = 0; ii < newParts.length; ii++) {
     if (newParts[ii]) {
       this.parts[this.parts.length] = newParts[ii];
-    } // if
-  } // for
+    }
+  }
 
   return this;
 };
@@ -296,7 +306,7 @@ proto.toString = function() {
 
   if (this.building) {
     output += this.building + '\n';
-  } // if
+  }
 
   if (this.street) {
     output += this.number ? this.number + ' ' : '';
