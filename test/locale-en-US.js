@@ -150,3 +150,13 @@ test('Mt Tabor Park, 6220 SE Salmon St, Portland, OR 97215, USA', expect({
   country: 'USA',
   regions: ['Mt Tabor Park', 'Portland', '97215']
 }));
+
+// Do not parse the first token as a state abbreviation
+test('Mt Tabor Park', expect({
+  regions: ['Mt Tabor Park']
+}));
+
+// Parse the first token as a state abbreviation when only one token present
+test('Mt', expect({
+  state: 'MT'
+}));
