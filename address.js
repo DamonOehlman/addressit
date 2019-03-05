@@ -51,7 +51,7 @@ proto._extractStreetParts = function(startIndex, streetPartsLength) {
     else {
       if (! numberParts) {
         numberParts = [];
-      } // if
+      }
 
       // add the current part to the building parts
       numberParts.unshift(parts.splice(index--, 1));
@@ -64,7 +64,7 @@ proto._extractStreetParts = function(startIndex, streetPartsLength) {
         // for non-alpha values, otherwise alpha
         return numberParts ? (! isAlpha) : isAlpha;
       };
-    } // if..else
+    }
   } // while
 
   this.number = numberParts ? numberParts.join('/') : '';
@@ -90,7 +90,7 @@ proto.clean = function(cleaners) {
     else if (cleaners[ii] instanceof RegExp) {
       this.text = this.text.replace(cleaners[ii], '');
     }
-  } // for
+  }
 
   return this;
 };
@@ -142,11 +142,11 @@ proto.extract = function(fieldName, regexes) {
         } else {
           // otherwise, just remove the element from parts
           this.parts.splice(ii, 1);
-        } // if..else
+        }
 
         // set the field
         this[fieldName] = lookups[rgxIdx] || match[1];
-      } // if
+      }
 
       // special case for states
       // @todo: add code comments
@@ -173,15 +173,15 @@ proto.extract = function(fieldName, regexes) {
             else {
               this.parts.splice(ii - spacesInMatch + 1, spacesInMatch);
               ii -= spacesInMatch + 1;
-            } // if..else
+            }
 
             // set the field
             this[fieldName] = lookups[rgxIdx] || matchMultiplePart[1];
           }
         }
-      } // if
-    } // for
-  } // for
+      }
+    }
+  }
 
   return this;
 };
@@ -218,9 +218,9 @@ proto.extractStreet = function(regexes, reSplitStreet, reNoStreet) {
           // update the best index and break from the inner loop
           bestIndex = ii;
           break;
-        } // if
-      } // for
-    } // for
+        }
+      }
+    }
 
     return bestIndex;
   } // locateBestStreetPart
@@ -248,9 +248,9 @@ proto.extractStreet = function(regexes, reSplitStreet, reNoStreet) {
 
         this._extractStreetParts(startIndex, streetPartsLength);
         break;
-      } // if
-    } // for
-  } // for
+      }
+    }
+  }
 
   return this;
 };
@@ -286,8 +286,8 @@ proto.split = function(separator) {
   for (var ii = 0; ii < newParts.length; ii++) {
     if (newParts[ii]) {
       this.parts[this.parts.length] = newParts[ii];
-    } // if
-  } // for
+    }
+  }
 
   return this;
 };
@@ -302,7 +302,7 @@ proto.toString = function() {
 
   if (this.building) {
     output += this.building + '\n';
-  } // if
+  }
 
   if (this.street) {
     output += this.number ? this.number + ' ' : '';
