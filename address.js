@@ -104,6 +104,10 @@ proto.clean = function(cleaners) {
   from the parts list.
 **/
 proto.extract = function(fieldName, regexes) {
+
+  // skip fields which have already been parsed
+  if (this[fieldName]) { return this; }
+
   var match;
   var rgxIdx;
   var ii;
