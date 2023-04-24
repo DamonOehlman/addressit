@@ -18,9 +18,7 @@
 
   The following is a simple example of how address it can be used:
 
-  ```js
   <<< examples/simple.js
-  ```
 
   The `address` object would now contain the following information:
 
