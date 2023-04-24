@@ -1,3 +1,4 @@
+
 # addressit
 
 AddressIt is a freeform street address parser, that is designed to take a
@@ -96,7 +97,7 @@ Convert the address to a string representation
 
 ### MIT
 
-Copyright (c) 2016 Damon Oehlman <damon.oehlman@gmail.com>
+Copyright (c) 2023 Damon Oehlman <damon.oehlman@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

@@ -19,10 +19,10 @@
   The following is a simple example of how address it can be used:
 
   ```js
-  var addressit = require('addressit');
+  const addressit = require('addressit');
 
   // parse a made up address, with some slightly tricky parts
-  var address = addressit('Shop 8, 431 St Kilda Rd Melbourne');
+  const address = addressit('Shop 8, 431 St Kilda Rd Melbourne');
   ```
 
   The `address` object would now contain the following information:
