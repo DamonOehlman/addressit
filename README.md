@@ -14,7 +14,7 @@ parsed based on your application needs.
 
 [![NPM](https://nodei.co/npm/addressit.png)](https://nodei.co/npm/addressit/)
 
-[![stable](https://img.shields.io/badge/stability-stable-green.svg)](https://github.com/dominictarr/stability#stable) [![bitHound Score](https://www.bithound.io/github/DamonOehlman/addressit/badges/score.svg)](https://www.bithound.io/github/DamonOehlman/addressit) 
+[![stable](https://img.shields.io/badge/stability-stable-green.svg)](https://github.com/dominictarr/stability#stable)
 
 ## Example Usage
 
