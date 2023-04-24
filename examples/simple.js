@@ -1,4 +1,4 @@
-const addressit = require('..');
+const addressit = require('addressit');
 
 // parse a made up address, with some slightly tricky parts
 const address = addressit('Shop 8, 431 St Kilda Rd Melbourne');
