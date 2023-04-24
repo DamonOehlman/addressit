@@ -30,5 +30,6 @@
     "address",
     "geo"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "runkitExampleFilename": "examples/simple.js"
 }

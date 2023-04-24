@@ -14,17 +14,22 @@ parsed based on your application needs.
 
 [![NPM](https://nodei.co/npm/addressit.png)](https://nodei.co/npm/addressit/)
 
-[![stable](https://img.shields.io/badge/stability-stable-green.svg)](https://github.com/dominictarr/stability#stable)
+[![stable](https://img.shields.io/badge/stability-stable-green.svg)](https://github.com/dominictarr/stability#stable) [![bitHound Score](https://www.bithound.io/github/DamonOehlman/addressit/badges/score.svg)](https://www.bithound.io/github/DamonOehlman/addressit) 
 
 ## Example Usage
 
 The following is a simple example of how address it can be used:
 
 ```js
+```js
 const addressit = require('addressit');
 
 // parse a made up address, with some slightly tricky parts
 const address = addressit('Shop 8, 431 St Kilda Rd Melbourne');
+
+// now log that address to the console
+console.log(address)
+```
 ```
 
 The `address` object would now contain the following information:
