@@ -2,7 +2,7 @@
   "name": "addressit",
   "description": "Freeform Street Address Parser",
   "author": "Damon Oehlman <damon.oehlman@gmail.com>",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "stability": "stable",
   "repository": {
     "type": "git",
